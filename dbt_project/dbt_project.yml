@@ -1,0 +1,17 @@
+name: ecommerce_dq
+version: '1.0.0'
+profile: ecommerce
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  ecommerce_dq:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

@@ -1,0 +1,1925 @@
+[0m12:45:20.299605 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ef6f0ceebd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ef6f2c567e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ef6f28ddb80>]}
+
+
+============================== 12:45:20.304766 | bad19b2c-4921-412b-b931-b29e974639b7 ==============================
+[0m12:45:20.304766 [info ] [MainThread]: Running with dbt=1.11.8
+[0m12:45:20.305619 [debug] [MainThread]: running dbt with arguments {'indirect_selection': 'eager', 'printer_width': '80', 'write_json': 'True', 'invocation_command': 'dbt debug --profiles-dir .', 'static_parser': 'True', 'target_path': 'None', 'log_cache_events': 'False', 'log_path': '/home/claude/dq_monitor/dbt_project/logs', 'no_print': 'None', 'debug': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '.', 'log_format': 'default', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'version_check': 'True', 'use_colors': 'True', 'warn_error': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_experimental_parser': 'False'}
+[0m12:45:20.345742 [info ] [MainThread]: dbt version: 1.11.8
+[0m12:45:20.346460 [info ] [MainThread]: python version: 3.12.3
+[0m12:45:20.347147 [info ] [MainThread]: python path: /usr/bin/python3
+[0m12:45:20.347830 [info ] [MainThread]: os info: Linux-4.4.0-x86_64-with-glibc2.39
+[0m12:45:20.519740 [info ] [MainThread]: Using profiles dir at .
+[0m12:45:20.520687 [info ] [MainThread]: Using profiles.yml file at ./profiles.yml
+[0m12:45:20.521282 [info ] [MainThread]: Using dbt_project.yml file at /home/claude/dq_monitor/dbt_project/dbt_project.yml
+[0m12:45:20.524181 [info ] [MainThread]: adapter type: duckdb
+[0m12:45:20.524868 [info ] [MainThread]: adapter version: 1.10.1
+[0m12:45:20.658558 [info ] [MainThread]: Configuration:
+[0m12:45:20.659379 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:45:20.659916 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m12:45:20.660489 [info ] [MainThread]: Required dependencies:
+[0m12:45:20.661348 [debug] [MainThread]: Executing "git --help"
+[0m12:45:20.667259 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m12:45:20.667901 [debug] [MainThread]: STDERR: "b''"
+[0m12:45:20.668386 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m12:45:20.668891 [info ] [MainThread]: Connection:
+[0m12:45:20.669378 [info ] [MainThread]:   database: ecommerce
+[0m12:45:20.669812 [info ] [MainThread]:   schema: main
+[0m12:45:20.670219 [info ] [MainThread]:   path: ../data/ecommerce.duckdb
+[0m12:45:20.670684 [info ] [MainThread]:   config_options: None
+[0m12:45:20.671122 [info ] [MainThread]:   extensions: None
+[0m12:45:20.671575 [info ] [MainThread]:   settings: {}
+[0m12:45:20.671968 [info ] [MainThread]:   external_root: .
+[0m12:45:20.672403 [info ] [MainThread]:   use_credential_provider: None
+[0m12:45:20.672824 [info ] [MainThread]:   attach: None
+[0m12:45:20.673255 [info ] [MainThread]:   filesystems: None
+[0m12:45:20.673647 [info ] [MainThread]:   remote: None
+[0m12:45:20.674052 [info ] [MainThread]:   plugins: None
+[0m12:45:20.674431 [info ] [MainThread]:   disable_transactions: False
+[0m12:45:20.675188 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m12:45:22.199320 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m12:45:22.590513 [debug] [MainThread]: Using duckdb connection "debug"
+[0m12:45:22.591296 [debug] [MainThread]: On debug: select 1 as id
+[0m12:45:22.591817 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:45:22.614877 [debug] [MainThread]: SQL status: OK in 0.023 seconds
+[0m12:45:22.616325 [debug] [MainThread]: On debug: Close
+[0m12:45:22.617010 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:45:22.617579 [info ] [MainThread]: [32mAll checks passed![0m
+[0m12:45:22.620083 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.4065175, "process_in_blocks": "0", "process_kernel_time": 0.99, "process_mem_max_rss": "202556", "process_out_blocks": "0", "process_user_time": 4.29}
+[0m12:45:22.620861 [debug] [MainThread]: Command `dbt debug` succeeded at 12:45:22.620736 after 2.41 seconds
+[0m12:45:22.621432 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:45:22.621989 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ef6f12d8440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ef6eb5a07d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ef6eb5a0f20>]}
+[0m12:45:22.622630 [debug] [MainThread]: Flushing usage events
+[0m12:45:22.960616 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:45:30.289184 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed707dbd280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed70a449700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed707564170>]}
+
+
+============================== 12:45:30.294898 | a964a72b-f6cc-49fa-a77f-6cd6ecd4d317 ==============================
+[0m12:45:30.294898 [info ] [MainThread]: Running with dbt=1.11.8
+[0m12:45:30.295649 [debug] [MainThread]: running dbt with arguments {'log_path': '/home/claude/dq_monitor/dbt_project/logs', 'version_check': 'True', 'profiles_dir': '.', 'debug': 'False', 'no_print': 'None', 'static_parser': 'True', 'printer_width': '80', 'quiet': 'False', 'use_colors': 'True', 'partial_parse': 'True', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'invocation_command': 'dbt run --profiles-dir .', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'empty': 'False', 'fail_fast': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'log_format': 'default'}
+[0m12:45:30.702422 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed702626a20>]}
+[0m12:45:30.809030 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed70771f680>]}
+[0m12:45:30.812526 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m12:45:32.287190 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m12:45:32.288796 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m12:45:32.289498 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed708360a70>]}
+[0m12:45:33.775658 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on 'stg_orders' in
+package 'ecommerce_dq' (models/staging/schema.yml). Arguments to generic tests
+should be nested under the `arguments` property.
+[0m12:45:33.776618 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed702127a10>]}
+[0m12:45:33.921444 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed701b93ce0>]}
+[0m12:45:34.020734 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dq_monitor/dbt_project/target/manifest.json
+[0m12:45:34.024341 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dq_monitor/dbt_project/target/semantic_manifest.json
+[0m12:45:34.054272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed701a39640>]}
+[0m12:45:34.055039 [info ] [MainThread]: Found 5 models, 30 data tests, 476 macros
+[0m12:45:34.055750 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed702382750>]}
+[0m12:45:34.058330 [info ] [MainThread]: 
+[0m12:45:34.058994 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m12:45:34.059600 [info ] [MainThread]: 
+[0m12:45:34.060437 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m12:45:34.066081 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_ecommerce'
+[0m12:45:34.363510 [debug] [ThreadPool]: Using duckdb connection "list_ecommerce"
+[0m12:45:34.364182 [debug] [ThreadPool]: On list_ecommerce: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "connection_name": "list_ecommerce"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"ecommerce"'
+    
+  
+  
+[0m12:45:34.364723 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:45:34.452912 [debug] [ThreadPool]: SQL status: OK in 0.088 seconds
+[0m12:45:34.454593 [debug] [ThreadPool]: On list_ecommerce: Close
+[0m12:45:34.455817 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ecommerce, now create_ecommerce_main)
+[0m12:45:34.456692 [debug] [ThreadPool]: Creating schema "database: "ecommerce"
+schema: "main"
+"
+[0m12:45:34.463303 [debug] [ThreadPool]: Using duckdb connection "create_ecommerce_main"
+[0m12:45:34.463924 [debug] [ThreadPool]: On create_ecommerce_main: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "connection_name": "create_ecommerce_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='ecommerce'
+        and type='sqlite'
+    
+  
+[0m12:45:34.464413 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m12:45:34.466972 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m12:45:34.468876 [debug] [ThreadPool]: Using duckdb connection "create_ecommerce_main"
+[0m12:45:34.470629 [debug] [ThreadPool]: On create_ecommerce_main: BEGIN
+[0m12:45:34.471740 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m12:45:34.472393 [debug] [ThreadPool]: Using duckdb connection "create_ecommerce_main"
+[0m12:45:34.472971 [debug] [ThreadPool]: On create_ecommerce_main: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "connection_name": "create_ecommerce_main"} */
+
+    
+    
+        create schema if not exists "ecommerce"."main"
+    
+[0m12:45:34.474140 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m12:45:34.475251 [debug] [ThreadPool]: On create_ecommerce_main: COMMIT
+[0m12:45:34.475734 [debug] [ThreadPool]: Using duckdb connection "create_ecommerce_main"
+[0m12:45:34.476231 [debug] [ThreadPool]: On create_ecommerce_main: COMMIT
+[0m12:45:34.477153 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m12:45:34.477762 [debug] [ThreadPool]: On create_ecommerce_main: Close
+[0m12:45:34.490472 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_ecommerce_main'
+[0m12:45:34.498227 [debug] [ThreadPool]: Using duckdb connection "list_ecommerce_main"
+[0m12:45:34.498916 [debug] [ThreadPool]: On list_ecommerce_main: BEGIN
+[0m12:45:34.499431 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:45:34.500426 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m12:45:34.501050 [debug] [ThreadPool]: Using duckdb connection "list_ecommerce_main"
+[0m12:45:34.501648 [debug] [ThreadPool]: On list_ecommerce_main: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "connection_name": "list_ecommerce_main"} */
+select
+      'ecommerce' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'ecommerce'
+  
+[0m12:45:34.509953 [debug] [ThreadPool]: SQL status: OK in 0.008 seconds
+[0m12:45:34.511659 [debug] [ThreadPool]: On list_ecommerce_main: ROLLBACK
+[0m12:45:34.513468 [debug] [ThreadPool]: Failed to rollback 'list_ecommerce_main'
+[0m12:45:34.514017 [debug] [ThreadPool]: On list_ecommerce_main: Close
+[0m12:45:34.515590 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed70a330620>]}
+[0m12:45:34.516491 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:34.517027 [debug] [MainThread]: On master: BEGIN
+[0m12:45:34.517535 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:45:34.518655 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m12:45:34.519296 [debug] [MainThread]: On master: COMMIT
+[0m12:45:34.519809 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:34.520267 [debug] [MainThread]: On master: COMMIT
+[0m12:45:34.521040 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m12:45:34.521633 [debug] [MainThread]: On master: Close
+[0m12:45:34.608359 [debug] [Thread-1 (]: Began running node model.ecommerce_dq.stg_orders
+[0m12:45:34.609333 [info ] [Thread-1 (]: 1 of 5 START sql view model main.stg_orders .................................... [RUN]
+[0m12:45:34.610350 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ecommerce_main, now model.ecommerce_dq.stg_orders)
+[0m12:45:34.611022 [debug] [Thread-1 (]: Began compiling node model.ecommerce_dq.stg_orders
+[0m12:45:34.617709 [debug] [Thread-1 (]: Writing injected SQL for node "model.ecommerce_dq.stg_orders"
+[0m12:45:34.619910 [debug] [Thread-1 (]: Began executing node model.ecommerce_dq.stg_orders
+[0m12:45:34.662451 [debug] [Thread-1 (]: Writing runtime sql for node "model.ecommerce_dq.stg_orders"
+[0m12:45:34.664725 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_orders"
+[0m12:45:34.665368 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: BEGIN
+[0m12:45:34.665882 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:34.666901 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.667487 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_orders"
+[0m12:45:34.668006 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_orders"} */
+
+  
+  create view "ecommerce"."main"."stg_orders__dbt_tmp" as (
+    -- Staging model: cleans and renames raw orders table
+-- Casts types, filters truly invalid rows, adds derived columns
+
+SELECT
+    id                                      AS order_id,
+    user_id,
+    product_id,
+    CAST(total AS DOUBLE)                   AS order_total,
+    LOWER(TRIM(status))                     AS order_status,
+    CAST(created_at AS DATE)                AS order_date,
+    CASE
+        WHEN total IS NULL     THEN 'missing_total'
+        WHEN total <= 0        THEN 'invalid_total'
+        WHEN total > 50000     THEN 'suspicious_total'
+        ELSE 'ok'
+    END                                     AS total_flag
+FROM orders
+WHERE id IS NOT NULL
+  );
+
+[0m12:45:34.669403 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.675407 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_orders"
+[0m12:45:34.676069 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_orders"} */
+alter view "ecommerce"."main"."stg_orders__dbt_tmp" rename to "stg_orders"
+[0m12:45:34.677340 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.689917 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: COMMIT
+[0m12:45:34.690656 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_orders"
+[0m12:45:34.691219 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: COMMIT
+[0m12:45:34.700405 [debug] [Thread-1 (]: SQL status: OK in 0.009 seconds
+[0m12:45:34.706357 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_orders"
+[0m12:45:34.707041 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_orders"} */
+
+      drop view if exists "ecommerce"."main"."stg_orders__dbt_backup" cascade
+    
+[0m12:45:34.708310 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.710789 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_orders: Close
+[0m12:45:34.713217 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed70a42fe60>]}
+[0m12:45:34.714174 [info ] [Thread-1 (]: 1 of 5 OK created sql view model main.stg_orders ............................... [[32mOK[0m in 0.10s]
+[0m12:45:34.715097 [debug] [Thread-1 (]: Finished running node model.ecommerce_dq.stg_orders
+[0m12:45:34.715706 [debug] [Thread-1 (]: Began running node model.ecommerce_dq.stg_products
+[0m12:45:34.716678 [info ] [Thread-1 (]: 2 of 5 START sql view model main.stg_products .................................. [RUN]
+[0m12:45:34.717485 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.ecommerce_dq.stg_orders, now model.ecommerce_dq.stg_products)
+[0m12:45:34.718125 [debug] [Thread-1 (]: Began compiling node model.ecommerce_dq.stg_products
+[0m12:45:34.719982 [debug] [Thread-1 (]: Writing injected SQL for node "model.ecommerce_dq.stg_products"
+[0m12:45:34.721290 [debug] [Thread-1 (]: Began executing node model.ecommerce_dq.stg_products
+[0m12:45:34.724076 [debug] [Thread-1 (]: Writing runtime sql for node "model.ecommerce_dq.stg_products"
+[0m12:45:34.725276 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_products"
+[0m12:45:34.725904 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: BEGIN
+[0m12:45:34.726504 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:34.727532 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.728164 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_products"
+[0m12:45:34.728697 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_products"} */
+
+  
+  create view "ecommerce"."main"."stg_products__dbt_tmp" as (
+    -- Staging model: cleans raw products table
+
+SELECT
+    id                                      AS product_id,
+    TRIM(name)                              AS product_name,
+    TRIM(category)                          AS category,
+    CAST(price AS DOUBLE)                   AS price,
+    CAST(stock AS INTEGER)                  AS stock_qty,
+    CASE
+        WHEN price IS NULL OR price <= 0   THEN 'invalid_price'
+        WHEN stock IS NULL                 THEN 'no_stock_info'
+        ELSE 'ok'
+    END                                     AS product_flag
+FROM products
+WHERE id IS NOT NULL
+  );
+
+[0m12:45:34.729986 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.733171 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_products"
+[0m12:45:34.733812 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_products"} */
+alter view "ecommerce"."main"."stg_products__dbt_tmp" rename to "stg_products"
+[0m12:45:34.734944 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.736409 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: COMMIT
+[0m12:45:34.745683 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_products"
+[0m12:45:34.746282 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: COMMIT
+[0m12:45:34.749604 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m12:45:34.753334 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_products"
+[0m12:45:34.753993 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_products"} */
+
+      drop view if exists "ecommerce"."main"."stg_products__dbt_backup" cascade
+    
+[0m12:45:34.755133 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.756903 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_products: Close
+[0m12:45:34.757656 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed702674d70>]}
+[0m12:45:34.758568 [info ] [Thread-1 (]: 2 of 5 OK created sql view model main.stg_products ............................. [[32mOK[0m in 0.04s]
+[0m12:45:34.759611 [debug] [Thread-1 (]: Finished running node model.ecommerce_dq.stg_products
+[0m12:45:34.760198 [debug] [Thread-1 (]: Began running node model.ecommerce_dq.stg_users
+[0m12:45:34.760965 [info ] [Thread-1 (]: 3 of 5 START sql view model main.stg_users ..................................... [RUN]
+[0m12:45:34.761754 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.ecommerce_dq.stg_products, now model.ecommerce_dq.stg_users)
+[0m12:45:34.762449 [debug] [Thread-1 (]: Began compiling node model.ecommerce_dq.stg_users
+[0m12:45:34.764366 [debug] [Thread-1 (]: Writing injected SQL for node "model.ecommerce_dq.stg_users"
+[0m12:45:34.765781 [debug] [Thread-1 (]: Began executing node model.ecommerce_dq.stg_users
+[0m12:45:34.769423 [debug] [Thread-1 (]: Writing runtime sql for node "model.ecommerce_dq.stg_users"
+[0m12:45:34.770827 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_users"
+[0m12:45:34.771516 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: BEGIN
+[0m12:45:34.772116 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:34.773200 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.773850 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_users"
+[0m12:45:34.774394 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_users"} */
+
+  
+  create view "ecommerce"."main"."stg_users__dbt_tmp" as (
+    -- Staging model: cleans raw users table
+
+SELECT
+    id                                      AS user_id,
+    LOWER(TRIM(email))                      AS email,
+    UPPER(TRIM(country))                    AS country_code,
+    CAST(age AS INTEGER)                    AS age,
+    CAST(joined AS DATE)                    AS joined_date,
+    CASE
+        WHEN email NOT LIKE '%@%'  THEN 'invalid_email'
+        WHEN country IS NULL       THEN 'missing_country'
+        ELSE 'ok'
+    END                                     AS user_flag
+FROM users
+WHERE id IS NOT NULL
+  );
+
+[0m12:45:34.775736 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.779686 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_users"
+[0m12:45:34.780482 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_users"} */
+alter view "ecommerce"."main"."stg_users__dbt_tmp" rename to "stg_users"
+[0m12:45:34.781660 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.783389 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: COMMIT
+[0m12:45:34.784077 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_users"
+[0m12:45:34.784609 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: COMMIT
+[0m12:45:34.789326 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m12:45:34.792551 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.stg_users"
+[0m12:45:34.793341 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.stg_users"} */
+
+      drop view if exists "ecommerce"."main"."stg_users__dbt_backup" cascade
+    
+[0m12:45:34.794425 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m12:45:34.796061 [debug] [Thread-1 (]: On model.ecommerce_dq.stg_users: Close
+[0m12:45:34.796906 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed702125820>]}
+[0m12:45:34.797759 [info ] [Thread-1 (]: 3 of 5 OK created sql view model main.stg_users ................................ [[32mOK[0m in 0.04s]
+[0m12:45:34.798653 [debug] [Thread-1 (]: Finished running node model.ecommerce_dq.stg_users
+[0m12:45:34.799346 [debug] [Thread-1 (]: Began running node model.ecommerce_dq.mart_orders_summary
+[0m12:45:34.800227 [info ] [Thread-1 (]: 4 of 5 START sql table model main.mart_orders_summary .......................... [RUN]
+[0m12:45:34.801034 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.ecommerce_dq.stg_users, now model.ecommerce_dq.mart_orders_summary)
+[0m12:45:34.801641 [debug] [Thread-1 (]: Began compiling node model.ecommerce_dq.mart_orders_summary
+[0m12:45:34.804188 [debug] [Thread-1 (]: Writing injected SQL for node "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.805903 [debug] [Thread-1 (]: Began executing node model.ecommerce_dq.mart_orders_summary
+[0m12:45:34.824681 [debug] [Thread-1 (]: Writing runtime sql for node "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.826271 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.826895 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: BEGIN
+[0m12:45:34.827408 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:34.845452 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.846124 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.846765 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.mart_orders_summary"} */
+
+  
+    
+    
+
+    create  table
+      "ecommerce"."main"."mart_orders_summary__dbt_tmp"
+  
+    as (
+      -- Business mart: daily order summary per status
+-- Downstream dashboards and reports read from this model
+
+SELECT
+    order_date,
+    order_status,
+    COUNT(*)                                AS total_orders,
+    SUM(order_total)                        AS total_revenue,
+    AVG(order_total)                        AS avg_order_value,
+    COUNT(CASE WHEN total_flag != 'ok' THEN 1 END) AS flagged_orders
+FROM "ecommerce"."main"."stg_orders"
+GROUP BY order_date, order_status
+ORDER BY order_date DESC
+    );
+  
+  
+[0m12:45:34.857426 [debug] [Thread-1 (]: SQL status: OK in 0.010 seconds
+[0m12:45:34.860911 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.861759 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.mart_orders_summary"} */
+alter table "ecommerce"."main"."mart_orders_summary__dbt_tmp" rename to "mart_orders_summary"
+[0m12:45:34.863100 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.867781 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: COMMIT
+[0m12:45:34.868469 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.869029 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: COMMIT
+[0m12:45:34.873812 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m12:45:34.876165 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_orders_summary"
+[0m12:45:34.876841 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.mart_orders_summary"} */
+
+      drop table if exists "ecommerce"."main"."mart_orders_summary__dbt_backup" cascade
+    
+[0m12:45:34.877881 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m12:45:34.879514 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_orders_summary: Close
+[0m12:45:34.880327 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed7091e4c80>]}
+[0m12:45:34.881426 [info ] [Thread-1 (]: 4 of 5 OK created sql table model main.mart_orders_summary ..................... [[32mOK[0m in 0.08s]
+[0m12:45:34.882523 [debug] [Thread-1 (]: Finished running node model.ecommerce_dq.mart_orders_summary
+[0m12:45:34.883144 [debug] [Thread-1 (]: Began running node model.ecommerce_dq.mart_user_activity
+[0m12:45:34.883984 [info ] [Thread-1 (]: 5 of 5 START sql table model main.mart_user_activity ........................... [RUN]
+[0m12:45:34.884806 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.ecommerce_dq.mart_orders_summary, now model.ecommerce_dq.mart_user_activity)
+[0m12:45:34.885430 [debug] [Thread-1 (]: Began compiling node model.ecommerce_dq.mart_user_activity
+[0m12:45:34.888306 [debug] [Thread-1 (]: Writing injected SQL for node "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.889474 [debug] [Thread-1 (]: Began executing node model.ecommerce_dq.mart_user_activity
+[0m12:45:34.893793 [debug] [Thread-1 (]: Writing runtime sql for node "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.895079 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.895678 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: BEGIN
+[0m12:45:34.896332 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:34.897512 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.898217 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.898775 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.mart_user_activity"} */
+
+  
+    
+    
+
+    create  table
+      "ecommerce"."main"."mart_user_activity__dbt_tmp"
+  
+    as (
+      -- Business mart: user order behaviour summary
+
+SELECT
+    u.user_id,
+    u.email,
+    u.country_code,
+    u.age,
+    COUNT(o.order_id)                       AS total_orders,
+    SUM(o.order_total)                      AS lifetime_value,
+    MAX(o.order_date)                       AS last_order_date,
+    MIN(o.order_date)                       AS first_order_date
+FROM "ecommerce"."main"."stg_users" u
+LEFT JOIN "ecommerce"."main"."stg_orders" o
+    ON u.user_id = o.user_id
+GROUP BY u.user_id, u.email, u.country_code, u.age
+    );
+  
+  
+[0m12:45:34.950080 [debug] [Thread-1 (]: SQL status: OK in 0.051 seconds
+[0m12:45:34.953087 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.953725 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.mart_user_activity"} */
+alter table "ecommerce"."main"."mart_user_activity__dbt_tmp" rename to "mart_user_activity"
+[0m12:45:34.954852 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:34.956474 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: COMMIT
+[0m12:45:34.957225 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.957787 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: COMMIT
+[0m12:45:34.962713 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m12:45:34.965140 [debug] [Thread-1 (]: Using duckdb connection "model.ecommerce_dq.mart_user_activity"
+[0m12:45:34.965882 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "model.ecommerce_dq.mart_user_activity"} */
+
+      drop table if exists "ecommerce"."main"."mart_user_activity__dbt_backup" cascade
+    
+[0m12:45:34.966938 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m12:45:34.968563 [debug] [Thread-1 (]: On model.ecommerce_dq.mart_user_activity: Close
+[0m12:45:34.969344 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a964a72b-f6cc-49fa-a77f-6cd6ecd4d317', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed7021e9250>]}
+[0m12:45:34.970125 [info ] [Thread-1 (]: 5 of 5 OK created sql table model main.mart_user_activity ...................... [[32mOK[0m in 0.08s]
+[0m12:45:34.971029 [debug] [Thread-1 (]: Finished running node model.ecommerce_dq.mart_user_activity
+[0m12:45:34.973551 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:34.974282 [debug] [MainThread]: On master: BEGIN
+[0m12:45:34.974795 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m12:45:34.975824 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m12:45:34.976452 [debug] [MainThread]: On master: COMMIT
+[0m12:45:34.976975 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:34.977504 [debug] [MainThread]: On master: COMMIT
+[0m12:45:34.978521 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m12:45:34.979080 [debug] [MainThread]: On master: Close
+[0m12:45:34.979678 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m12:45:34.980295 [debug] [MainThread]: Connection 'create_ecommerce_main' was properly closed.
+[0m12:45:34.980770 [debug] [MainThread]: Connection 'model.ecommerce_dq.mart_user_activity' was properly closed.
+[0m12:45:34.981491 [info ] [MainThread]: 
+[0m12:45:34.982360 [info ] [MainThread]: Finished running 2 table models, 3 view models in 0 hours 0 minutes and 0.92 seconds (0.92s).
+[0m12:45:34.983800 [debug] [MainThread]: Command end result
+[0m12:45:35.017394 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dq_monitor/dbt_project/target/manifest.json
+[0m12:45:35.045943 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dq_monitor/dbt_project/target/semantic_manifest.json
+[0m12:45:35.052428 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/claude/dq_monitor/dbt_project/target/run_results.json
+[0m12:45:35.053064 [info ] [MainThread]: 
+[0m12:45:35.053800 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m12:45:35.054474 [info ] [MainThread]: 
+[0m12:45:35.055049 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=5
+[0m12:45:35.055836 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 3 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m12:45:35.058524 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 4.8583364, "process_in_blocks": "0", "process_kernel_time": 1.35, "process_mem_max_rss": "241044", "process_out_blocks": "0", "process_user_time": 6.33}
+[0m12:45:35.059461 [debug] [MainThread]: Command `dbt run` succeeded at 12:45:35.059315 after 4.86 seconds
+[0m12:45:35.060109 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed70104adb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed708362f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ed70219cd10>]}
+[0m12:45:35.060877 [debug] [MainThread]: Flushing usage events
+[0m12:45:35.165318 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:45:50.097828 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc992e2330>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc992e3f80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc984f1130>]}
+
+
+============================== 12:45:50.103547 | eca4157a-df95-4dc8-8416-f5643fd722ec ==============================
+[0m12:45:50.103547 [info ] [MainThread]: Running with dbt=1.11.8
+[0m12:45:50.104406 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'target_path': 'None', 'introspect': 'True', 'warn_error': 'None', 'profiles_dir': '.', 'static_parser': 'True', 'use_colors': 'True', 'log_cache_events': 'False', 'write_json': 'True', 'invocation_command': 'dbt test --profiles-dir .', 'log_path': '/home/claude/dq_monitor/dbt_project/logs', 'quiet': 'False', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'log_format': 'default', 'indirect_selection': 'eager', 'fail_fast': 'False', 'cache_selected_only': 'False', 'printer_width': '80', 'empty': 'None', 'no_print': 'None'}
+[0m12:45:50.552510 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'eca4157a-df95-4dc8-8416-f5643fd722ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc983442f0>]}
+[0m12:45:50.625348 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'eca4157a-df95-4dc8-8416-f5643fd722ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc98637aa0>]}
+[0m12:45:50.628956 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m12:45:52.180982 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m12:45:52.463457 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m12:45:52.464770 [debug] [MainThread]: Partial parsing: updated file: ecommerce_dq://models/staging/schema.yml
+[0m12:45:53.068752 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'eca4157a-df95-4dc8-8416-f5643fd722ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc9afcf9e0>]}
+[0m12:45:53.162087 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dq_monitor/dbt_project/target/manifest.json
+[0m12:45:53.165674 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dq_monitor/dbt_project/target/semantic_manifest.json
+[0m12:45:53.195427 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'eca4157a-df95-4dc8-8416-f5643fd722ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc930c9730>]}
+[0m12:45:53.196130 [info ] [MainThread]: Found 5 models, 30 data tests, 476 macros
+[0m12:45:53.196727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eca4157a-df95-4dc8-8416-f5643fd722ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc9341e9c0>]}
+[0m12:45:53.199862 [info ] [MainThread]: 
+[0m12:45:53.200628 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m12:45:53.201150 [info ] [MainThread]: 
+[0m12:45:53.201931 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m12:45:53.207141 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_ecommerce_main'
+[0m12:45:53.499266 [debug] [ThreadPool]: Using duckdb connection "list_ecommerce_main"
+[0m12:45:53.500212 [debug] [ThreadPool]: On list_ecommerce_main: BEGIN
+[0m12:45:53.500961 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m12:45:53.589144 [debug] [ThreadPool]: SQL status: OK in 0.088 seconds
+[0m12:45:53.589872 [debug] [ThreadPool]: Using duckdb connection "list_ecommerce_main"
+[0m12:45:53.590539 [debug] [ThreadPool]: On list_ecommerce_main: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "connection_name": "list_ecommerce_main"} */
+select
+      'ecommerce' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'ecommerce'
+  
+[0m12:45:53.600594 [debug] [ThreadPool]: SQL status: OK in 0.009 seconds
+[0m12:45:53.602549 [debug] [ThreadPool]: On list_ecommerce_main: ROLLBACK
+[0m12:45:53.604781 [debug] [ThreadPool]: Failed to rollback 'list_ecommerce_main'
+[0m12:45:53.645625 [debug] [ThreadPool]: On list_ecommerce_main: Close
+[0m12:45:53.648222 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eca4157a-df95-4dc8-8416-f5643fd722ec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc93022240>]}
+[0m12:45:53.649129 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:53.649706 [debug] [MainThread]: On master: BEGIN
+[0m12:45:53.650199 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:45:53.651443 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m12:45:53.652096 [debug] [MainThread]: On master: COMMIT
+[0m12:45:53.652647 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:53.653106 [debug] [MainThread]: On master: COMMIT
+[0m12:45:53.654069 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m12:45:53.654683 [debug] [MainThread]: On master: Close
+[0m12:45:53.662009 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652
+[0m12:45:53.662786 [info ] [Thread-1 (]: 1 of 30 START test accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded  [RUN]
+[0m12:45:53.663709 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ecommerce_main, now test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652)
+[0m12:45:53.664392 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652
+[0m12:45:53.674469 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652"
+[0m12:45:53.676141 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652
+[0m12:45:53.696282 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652"
+[0m12:45:53.698080 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652"
+[0m12:45:53.698730 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652: BEGIN
+[0m12:45:53.699288 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.700330 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.701008 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652"
+[0m12:45:53.701664 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        order_status as value_field,
+        count(*) as n_records
+
+    from "ecommerce"."main"."stg_orders"
+    group by order_status
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'paid','pending','cancelled','refunded'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.707707 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m12:45:53.712613 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652: ROLLBACK
+[0m12:45:53.714097 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652'
+[0m12:45:53.714773 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652: Close
+[0m12:45:53.715641 [error] [Thread-1 (]: 1 of 30 FAIL 1 accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded  [[31mFAIL 1[0m in 0.05s]
+[0m12:45:53.716500 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652
+[0m12:45:53.717113 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5
+[0m12:45:53.717866 [info ] [Thread-1 (]: 2 of 30 START test accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports  [RUN]
+[0m12:45:53.718685 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded.3dd56d6652, now test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5)
+[0m12:45:53.719275 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5
+[0m12:45:53.723601 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5"
+[0m12:45:53.746342 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5
+[0m12:45:53.748589 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5"
+[0m12:45:53.749751 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5"
+[0m12:45:53.750304 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5: BEGIN
+[0m12:45:53.750811 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.751748 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.752400 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5"
+[0m12:45:53.753034 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        category as value_field,
+        count(*) as n_records
+
+    from "ecommerce"."main"."stg_products"
+    group by category
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Electronics','Clothing','Books','Home','Sports'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.755770 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m12:45:53.757789 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5: ROLLBACK
+[0m12:45:53.759185 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5'
+[0m12:45:53.759889 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5: Close
+[0m12:45:53.760838 [info ] [Thread-1 (]: 2 of 30 PASS accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports  [[32mPASS[0m in 0.04s]
+[0m12:45:53.761747 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5
+[0m12:45:53.762485 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e
+[0m12:45:53.763112 [info ] [Thread-1 (]: 3 of 30 START test accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE  [RUN]
+[0m12:45:53.763748 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.accepted_values_stg_products_category__Electronics__Clothing__Books__Home__Sports.fd66c67fb5, now test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e)
+[0m12:45:53.764402 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e
+[0m12:45:53.768476 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e"
+[0m12:45:53.769848 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e
+[0m12:45:53.772425 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e"
+[0m12:45:53.773692 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e"
+[0m12:45:53.774258 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e: BEGIN
+[0m12:45:53.774714 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.775783 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.776518 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e"
+[0m12:45:53.777082 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        country_code as value_field,
+        count(*) as n_records
+
+    from "ecommerce"."main"."stg_users"
+    group by country_code
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'LK','US','UK','IN','AU','DE'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.782882 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m12:45:53.784648 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e: ROLLBACK
+[0m12:45:53.785934 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e'
+[0m12:45:53.786602 [debug] [Thread-1 (]: On test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e: Close
+[0m12:45:53.787427 [error] [Thread-1 (]: 3 of 30 FAIL 1 accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE .. [[31mFAIL 1[0m in 0.02s]
+[0m12:45:53.788265 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e
+[0m12:45:53.788948 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.assert_daily_revenue_positive
+[0m12:45:53.789583 [info ] [Thread-1 (]: 4 of 30 START test assert_daily_revenue_positive ............................... [RUN]
+[0m12:45:53.790270 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.a689734a5e, now test.ecommerce_dq.assert_daily_revenue_positive)
+[0m12:45:53.790785 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.assert_daily_revenue_positive
+[0m12:45:53.793331 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.assert_daily_revenue_positive"
+[0m12:45:53.794654 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.assert_daily_revenue_positive
+[0m12:45:53.796721 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.assert_daily_revenue_positive"
+[0m12:45:53.798232 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.assert_daily_revenue_positive"
+[0m12:45:53.798826 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_daily_revenue_positive: BEGIN
+[0m12:45:53.799371 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.800386 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.801012 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.assert_daily_revenue_positive"
+[0m12:45:53.801523 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_daily_revenue_positive: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.assert_daily_revenue_positive"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- Custom test: every day in the mart must have positive total revenue
+-- Catches days where all orders were cancelled/refunded unexpectedly
+
+SELECT
+    order_date,
+    SUM(total_revenue) AS day_revenue
+FROM "ecommerce"."main"."mart_orders_summary"
+GROUP BY order_date
+HAVING SUM(total_revenue) <= 0
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.803966 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m12:45:53.805692 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_daily_revenue_positive: ROLLBACK
+[0m12:45:53.806896 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.assert_daily_revenue_positive'
+[0m12:45:53.807587 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_daily_revenue_positive: Close
+[0m12:45:53.808381 [info ] [Thread-1 (]: 4 of 30 PASS assert_daily_revenue_positive ..................................... [[32mPASS[0m in 0.02s]
+[0m12:45:53.809102 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.assert_daily_revenue_positive
+[0m12:45:53.809721 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.assert_no_negative_order_totals
+[0m12:45:53.810448 [info ] [Thread-1 (]: 5 of 30 START test assert_no_negative_order_totals ............................. [RUN]
+[0m12:45:53.822839 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.assert_daily_revenue_positive, now test.ecommerce_dq.assert_no_negative_order_totals)
+[0m12:45:53.823507 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.assert_no_negative_order_totals
+[0m12:45:53.847588 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.assert_no_negative_order_totals"
+[0m12:45:53.848813 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.assert_no_negative_order_totals
+[0m12:45:53.852319 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.assert_no_negative_order_totals"
+[0m12:45:53.853512 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.assert_no_negative_order_totals"
+[0m12:45:53.854106 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_negative_order_totals: BEGIN
+[0m12:45:53.854633 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.855605 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.856214 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.assert_no_negative_order_totals"
+[0m12:45:53.856773 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_negative_order_totals: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.assert_no_negative_order_totals"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- Custom test: fails if ANY order has a negative total
+-- A passing test returns 0 rows. Returning any rows = FAIL.
+
+SELECT
+    order_id,
+    order_total
+FROM "ecommerce"."main"."stg_orders"
+WHERE order_total < 0
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.858570 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.860294 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_negative_order_totals: ROLLBACK
+[0m12:45:53.861522 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.assert_no_negative_order_totals'
+[0m12:45:53.862134 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_negative_order_totals: Close
+[0m12:45:53.862928 [info ] [Thread-1 (]: 5 of 30 PASS assert_no_negative_order_totals ................................... [[32mPASS[0m in 0.04s]
+[0m12:45:53.863713 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.assert_no_negative_order_totals
+[0m12:45:53.864388 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.assert_no_suspicious_order_volume
+[0m12:45:53.864966 [info ] [Thread-1 (]: 6 of 30 START test assert_no_suspicious_order_volume ........................... [RUN]
+[0m12:45:53.865578 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.assert_no_negative_order_totals, now test.ecommerce_dq.assert_no_suspicious_order_volume)
+[0m12:45:53.866119 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.assert_no_suspicious_order_volume
+[0m12:45:53.868504 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.assert_no_suspicious_order_volume"
+[0m12:45:53.869534 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.assert_no_suspicious_order_volume
+[0m12:45:53.871544 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.assert_no_suspicious_order_volume"
+[0m12:45:53.872621 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.assert_no_suspicious_order_volume"
+[0m12:45:53.873223 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_suspicious_order_volume: BEGIN
+[0m12:45:53.873779 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.874752 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.875451 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.assert_no_suspicious_order_volume"
+[0m12:45:53.876101 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_suspicious_order_volume: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.assert_no_suspicious_order_volume"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  -- Custom test: flags users with abnormally high order counts
+-- Could indicate bot activity or data duplication
+
+SELECT
+    user_id,
+    total_orders
+FROM "ecommerce"."main"."mart_user_activity"
+WHERE total_orders > 500
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.877754 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.879673 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_suspicious_order_volume: ROLLBACK
+[0m12:45:53.880926 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.assert_no_suspicious_order_volume'
+[0m12:45:53.881639 [debug] [Thread-1 (]: On test.ecommerce_dq.assert_no_suspicious_order_volume: Close
+[0m12:45:53.882472 [info ] [Thread-1 (]: 6 of 30 PASS assert_no_suspicious_order_volume ................................. [[32mPASS[0m in 0.02s]
+[0m12:45:53.883305 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.assert_no_suspicious_order_volume
+[0m12:45:53.883861 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c
+[0m12:45:53.884470 [info ] [Thread-1 (]: 7 of 30 START test not_null_mart_orders_summary_order_date ..................... [RUN]
+[0m12:45:53.885421 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.assert_no_suspicious_order_volume, now test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c)
+[0m12:45:53.885964 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c
+[0m12:45:53.892551 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c"
+[0m12:45:53.894055 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c
+[0m12:45:53.896303 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c"
+[0m12:45:53.897883 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c"
+[0m12:45:53.898491 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c: BEGIN
+[0m12:45:53.898986 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.900101 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.900742 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c"
+[0m12:45:53.901317 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from "ecommerce"."main"."mart_orders_summary"
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.902899 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.904586 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c: ROLLBACK
+[0m12:45:53.905822 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c'
+[0m12:45:53.906548 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c: Close
+[0m12:45:53.907416 [info ] [Thread-1 (]: 7 of 30 PASS not_null_mart_orders_summary_order_date ........................... [[32mPASS[0m in 0.02s]
+[0m12:45:53.908142 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c
+[0m12:45:53.908797 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1
+[0m12:45:53.909443 [info ] [Thread-1 (]: 8 of 30 START test not_null_mart_orders_summary_order_status ................... [RUN]
+[0m12:45:53.910124 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_mart_orders_summary_order_date.966665ca3c, now test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1)
+[0m12:45:53.910630 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1
+[0m12:45:53.914173 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1"
+[0m12:45:53.915308 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1
+[0m12:45:53.917257 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1"
+[0m12:45:53.918393 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1"
+[0m12:45:53.919064 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1: BEGIN
+[0m12:45:53.945897 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.947038 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.947808 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1"
+[0m12:45:53.948601 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_status
+from "ecommerce"."main"."mart_orders_summary"
+where order_status is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.950385 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.952017 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1: ROLLBACK
+[0m12:45:53.953327 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1'
+[0m12:45:53.953980 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1: Close
+[0m12:45:53.954731 [info ] [Thread-1 (]: 8 of 30 PASS not_null_mart_orders_summary_order_status ......................... [[32mPASS[0m in 0.04s]
+[0m12:45:53.955527 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1
+[0m12:45:53.956157 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632
+[0m12:45:53.956710 [info ] [Thread-1 (]: 9 of 30 START test not_null_mart_orders_summary_total_orders ................... [RUN]
+[0m12:45:53.957406 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_mart_orders_summary_order_status.aa954fa7a1, now test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632)
+[0m12:45:53.957930 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632
+[0m12:45:53.961576 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632"
+[0m12:45:53.962678 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632
+[0m12:45:53.964758 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632"
+[0m12:45:53.966282 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632"
+[0m12:45:53.966933 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632: BEGIN
+[0m12:45:53.967442 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.968403 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.968986 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632"
+[0m12:45:53.969618 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select total_orders
+from "ecommerce"."main"."mart_orders_summary"
+where total_orders is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.971402 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.973092 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632: ROLLBACK
+[0m12:45:53.974655 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632'
+[0m12:45:53.975367 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632: Close
+[0m12:45:53.976183 [info ] [Thread-1 (]: 9 of 30 PASS not_null_mart_orders_summary_total_orders ......................... [[32mPASS[0m in 0.02s]
+[0m12:45:53.977050 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632
+[0m12:45:53.977734 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed
+[0m12:45:53.978296 [info ] [Thread-1 (]: 10 of 30 START test not_null_mart_user_activity_email .......................... [RUN]
+[0m12:45:53.979013 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_mart_orders_summary_total_orders.9986c77632, now test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed)
+[0m12:45:53.979589 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed
+[0m12:45:53.982969 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed"
+[0m12:45:53.984099 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed
+[0m12:45:53.986157 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed"
+[0m12:45:53.987393 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed"
+[0m12:45:53.987924 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed: BEGIN
+[0m12:45:53.988404 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:53.989296 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.989791 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed"
+[0m12:45:53.990273 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select email
+from "ecommerce"."main"."mart_user_activity"
+where email is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:53.991843 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:53.993605 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed: ROLLBACK
+[0m12:45:53.994796 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed'
+[0m12:45:53.995417 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed: Close
+[0m12:45:53.996136 [info ] [Thread-1 (]: 10 of 30 PASS not_null_mart_user_activity_email ................................ [[32mPASS[0m in 0.02s]
+[0m12:45:53.996884 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed
+[0m12:45:53.997435 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657
+[0m12:45:53.998045 [info ] [Thread-1 (]: 11 of 30 START test not_null_mart_user_activity_user_id ........................ [RUN]
+[0m12:45:53.998655 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_mart_user_activity_email.5c01ad09ed, now test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657)
+[0m12:45:53.999147 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657
+[0m12:45:54.003578 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657"
+[0m12:45:54.005041 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657
+[0m12:45:54.007090 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657"
+[0m12:45:54.008196 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657"
+[0m12:45:54.008831 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657: BEGIN
+[0m12:45:54.009344 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.010279 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.010760 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657"
+[0m12:45:54.011264 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "ecommerce"."main"."mart_user_activity"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.046060 [debug] [Thread-1 (]: SQL status: OK in 0.034 seconds
+[0m12:45:54.048030 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657: ROLLBACK
+[0m12:45:54.049413 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657'
+[0m12:45:54.050115 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657: Close
+[0m12:45:54.050948 [info ] [Thread-1 (]: 11 of 30 PASS not_null_mart_user_activity_user_id .............................. [[32mPASS[0m in 0.05s]
+[0m12:45:54.051783 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657
+[0m12:45:54.052363 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb
+[0m12:45:54.052938 [info ] [Thread-1 (]: 12 of 30 START test not_null_stg_orders_order_date ............................. [RUN]
+[0m12:45:54.053552 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_mart_user_activity_user_id.199db62657, now test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb)
+[0m12:45:54.054041 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb
+[0m12:45:54.057818 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb"
+[0m12:45:54.059113 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb
+[0m12:45:54.061323 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb"
+[0m12:45:54.062528 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb"
+[0m12:45:54.063063 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb: BEGIN
+[0m12:45:54.063644 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.064635 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.065223 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb"
+[0m12:45:54.065757 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_date
+from "ecommerce"."main"."stg_orders"
+where order_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.067877 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m12:45:54.069727 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb: ROLLBACK
+[0m12:45:54.071125 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb'
+[0m12:45:54.071743 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb: Close
+[0m12:45:54.072555 [info ] [Thread-1 (]: 12 of 30 PASS not_null_stg_orders_order_date ................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.073386 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb
+[0m12:45:54.074083 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64
+[0m12:45:54.074867 [info ] [Thread-1 (]: 13 of 30 START test not_null_stg_orders_order_id ............................... [RUN]
+[0m12:45:54.075701 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_orders_order_date.2177a3e8bb, now test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64)
+[0m12:45:54.076256 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64
+[0m12:45:54.079731 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64"
+[0m12:45:54.081033 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64
+[0m12:45:54.083120 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64"
+[0m12:45:54.084408 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64"
+[0m12:45:54.084975 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64: BEGIN
+[0m12:45:54.085462 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.086323 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.086825 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64"
+[0m12:45:54.087439 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from "ecommerce"."main"."stg_orders"
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.089266 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.091004 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64: ROLLBACK
+[0m12:45:54.092232 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64'
+[0m12:45:54.092922 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64: Close
+[0m12:45:54.093726 [info ] [Thread-1 (]: 13 of 30 PASS not_null_stg_orders_order_id ..................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.094540 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64
+[0m12:45:54.095101 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79
+[0m12:45:54.095786 [info ] [Thread-1 (]: 14 of 30 START test not_null_stg_orders_order_status ........................... [RUN]
+[0m12:45:54.096598 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_orders_order_id.81cfe2fe64, now test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79)
+[0m12:45:54.097200 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79
+[0m12:45:54.100718 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79"
+[0m12:45:54.101868 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79
+[0m12:45:54.103878 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79"
+[0m12:45:54.105111 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79"
+[0m12:45:54.105685 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79: BEGIN
+[0m12:45:54.106561 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.107644 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.108215 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79"
+[0m12:45:54.108768 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_status
+from "ecommerce"."main"."stg_orders"
+where order_status is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.111163 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m12:45:54.113325 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79: ROLLBACK
+[0m12:45:54.114618 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79'
+[0m12:45:54.115275 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79: Close
+[0m12:45:54.116028 [info ] [Thread-1 (]: 14 of 30 PASS not_null_stg_orders_order_status ................................. [[32mPASS[0m in 0.02s]
+[0m12:45:54.116910 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79
+[0m12:45:54.145783 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031
+[0m12:45:54.146627 [info ] [Thread-1 (]: 15 of 30 START test not_null_stg_orders_order_total ............................ [RUN]
+[0m12:45:54.147443 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_orders_order_status.d7fcf15f79, now test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031)
+[0m12:45:54.148128 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031
+[0m12:45:54.151776 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031"
+[0m12:45:54.153128 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031
+[0m12:45:54.155438 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031"
+[0m12:45:54.156661 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031"
+[0m12:45:54.157332 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031: BEGIN
+[0m12:45:54.157817 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.158997 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.159806 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031"
+[0m12:45:54.160472 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_total
+from "ecommerce"."main"."stg_orders"
+where order_total is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.162444 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.164180 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031: ROLLBACK
+[0m12:45:54.165497 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031'
+[0m12:45:54.166112 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031: Close
+[0m12:45:54.166917 [error] [Thread-1 (]: 15 of 30 FAIL 35 not_null_stg_orders_order_total ............................... [[31mFAIL 35[0m in 0.02s]
+[0m12:45:54.167684 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031
+[0m12:45:54.168347 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e
+[0m12:45:54.168979 [info ] [Thread-1 (]: 16 of 30 START test not_null_stg_orders_product_id ............................. [RUN]
+[0m12:45:54.169678 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_orders_order_total.388b18e031, now test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e)
+[0m12:45:54.170193 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e
+[0m12:45:54.174920 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e"
+[0m12:45:54.176210 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e
+[0m12:45:54.178206 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e"
+[0m12:45:54.179485 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e"
+[0m12:45:54.180048 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e: BEGIN
+[0m12:45:54.180572 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.181535 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.182207 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e"
+[0m12:45:54.182809 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select product_id
+from "ecommerce"."main"."stg_orders"
+where product_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.184583 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.186397 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e: ROLLBACK
+[0m12:45:54.187867 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e'
+[0m12:45:54.188551 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e: Close
+[0m12:45:54.189418 [info ] [Thread-1 (]: 16 of 30 PASS not_null_stg_orders_product_id ................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.190201 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e
+[0m12:45:54.190821 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209
+[0m12:45:54.191493 [info ] [Thread-1 (]: 17 of 30 START test not_null_stg_orders_user_id ................................ [RUN]
+[0m12:45:54.192398 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_orders_product_id.034adb910e, now test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209)
+[0m12:45:54.193060 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209
+[0m12:45:54.196543 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209"
+[0m12:45:54.197869 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209
+[0m12:45:54.200052 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209"
+[0m12:45:54.201274 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209"
+[0m12:45:54.201924 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209: BEGIN
+[0m12:45:54.202474 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.203477 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.204191 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209"
+[0m12:45:54.204781 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "ecommerce"."main"."stg_orders"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.206663 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.208482 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209: ROLLBACK
+[0m12:45:54.209709 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209'
+[0m12:45:54.210385 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209: Close
+[0m12:45:54.211164 [info ] [Thread-1 (]: 17 of 30 PASS not_null_stg_orders_user_id ...................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.211949 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209
+[0m12:45:54.212760 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1
+[0m12:45:54.213419 [info ] [Thread-1 (]: 18 of 30 START test not_null_stg_products_category ............................. [RUN]
+[0m12:45:54.214334 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_orders_user_id.7d129d0209, now test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1)
+[0m12:45:54.215001 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1
+[0m12:45:54.218679 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1"
+[0m12:45:54.246294 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1
+[0m12:45:54.248471 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1"
+[0m12:45:54.249912 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1"
+[0m12:45:54.250604 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1: BEGIN
+[0m12:45:54.251403 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.252649 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.253291 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1"
+[0m12:45:54.253839 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select category
+from "ecommerce"."main"."stg_products"
+where category is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.257429 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m12:45:54.259514 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1: ROLLBACK
+[0m12:45:54.260887 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1'
+[0m12:45:54.261590 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1: Close
+[0m12:45:54.262520 [info ] [Thread-1 (]: 18 of 30 PASS not_null_stg_products_category ................................... [[32mPASS[0m in 0.05s]
+[0m12:45:54.263316 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1
+[0m12:45:54.263871 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_products_price.2d147627d4
+[0m12:45:54.264473 [info ] [Thread-1 (]: 19 of 30 START test not_null_stg_products_price ................................ [RUN]
+[0m12:45:54.265042 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_products_category.6007d8b2d1, now test.ecommerce_dq.not_null_stg_products_price.2d147627d4)
+[0m12:45:54.265525 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_products_price.2d147627d4
+[0m12:45:54.269024 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_products_price.2d147627d4"
+[0m12:45:54.270208 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_products_price.2d147627d4
+[0m12:45:54.272290 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_products_price.2d147627d4"
+[0m12:45:54.273455 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_price.2d147627d4"
+[0m12:45:54.273998 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_price.2d147627d4: BEGIN
+[0m12:45:54.274479 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.275419 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.276068 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_price.2d147627d4"
+[0m12:45:54.276712 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_price.2d147627d4: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_products_price.2d147627d4"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price
+from "ecommerce"."main"."stg_products"
+where price is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.279330 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m12:45:54.280993 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_price.2d147627d4: ROLLBACK
+[0m12:45:54.282312 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_products_price.2d147627d4'
+[0m12:45:54.282924 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_price.2d147627d4: Close
+[0m12:45:54.283672 [info ] [Thread-1 (]: 19 of 30 PASS not_null_stg_products_price ...................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.284519 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_products_price.2d147627d4
+[0m12:45:54.285100 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3
+[0m12:45:54.285773 [info ] [Thread-1 (]: 20 of 30 START test not_null_stg_products_product_id ........................... [RUN]
+[0m12:45:54.286637 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_products_price.2d147627d4, now test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3)
+[0m12:45:54.287315 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3
+[0m12:45:54.291316 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3"
+[0m12:45:54.292574 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3
+[0m12:45:54.294680 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3"
+[0m12:45:54.295984 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3"
+[0m12:45:54.296637 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3: BEGIN
+[0m12:45:54.297232 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.298302 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.298898 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3"
+[0m12:45:54.299393 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select product_id
+from "ecommerce"."main"."stg_products"
+where product_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.301158 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.302945 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3: ROLLBACK
+[0m12:45:54.304225 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3'
+[0m12:45:54.304844 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3: Close
+[0m12:45:54.305646 [info ] [Thread-1 (]: 20 of 30 PASS not_null_stg_products_product_id ................................. [[32mPASS[0m in 0.02s]
+[0m12:45:54.306436 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3
+[0m12:45:54.307032 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939
+[0m12:45:54.307738 [info ] [Thread-1 (]: 21 of 30 START test not_null_stg_products_product_name ......................... [RUN]
+[0m12:45:54.308505 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_products_product_id.6373b0acf3, now test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939)
+[0m12:45:54.309071 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939
+[0m12:45:54.312924 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939"
+[0m12:45:54.314125 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939
+[0m12:45:54.348666 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939"
+[0m12:45:54.350079 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939"
+[0m12:45:54.350666 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939: BEGIN
+[0m12:45:54.351221 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.352385 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.353025 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939"
+[0m12:45:54.353645 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select product_name
+from "ecommerce"."main"."stg_products"
+where product_name is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.355602 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.357441 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939: ROLLBACK
+[0m12:45:54.358778 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939'
+[0m12:45:54.359465 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939: Close
+[0m12:45:54.360275 [info ] [Thread-1 (]: 21 of 30 PASS not_null_stg_products_product_name ............................... [[32mPASS[0m in 0.05s]
+[0m12:45:54.361053 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939
+[0m12:45:54.361668 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6
+[0m12:45:54.362264 [info ] [Thread-1 (]: 22 of 30 START test not_null_stg_users_country_code ............................ [RUN]
+[0m12:45:54.362864 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_products_product_name.0b59e4b939, now test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6)
+[0m12:45:54.363373 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6
+[0m12:45:54.366839 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6"
+[0m12:45:54.368132 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6
+[0m12:45:54.370351 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6"
+[0m12:45:54.371499 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6"
+[0m12:45:54.372031 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6: BEGIN
+[0m12:45:54.372527 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.373451 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.374053 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6"
+[0m12:45:54.374736 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select country_code
+from "ecommerce"."main"."stg_users"
+where country_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.376650 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.378354 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6: ROLLBACK
+[0m12:45:54.379638 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6'
+[0m12:45:54.380327 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6: Close
+[0m12:45:54.381102 [info ] [Thread-1 (]: 22 of 30 PASS not_null_stg_users_country_code .................................. [[32mPASS[0m in 0.02s]
+[0m12:45:54.381867 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6
+[0m12:45:54.382414 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_users_email.2723c62e0e
+[0m12:45:54.382991 [info ] [Thread-1 (]: 23 of 30 START test not_null_stg_users_email ................................... [RUN]
+[0m12:45:54.383596 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_users_country_code.d9616ccfb6, now test.ecommerce_dq.not_null_stg_users_email.2723c62e0e)
+[0m12:45:54.384082 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_users_email.2723c62e0e
+[0m12:45:54.387764 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_users_email.2723c62e0e"
+[0m12:45:54.388937 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_users_email.2723c62e0e
+[0m12:45:54.391059 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_users_email.2723c62e0e"
+[0m12:45:54.392214 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_email.2723c62e0e"
+[0m12:45:54.392845 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_email.2723c62e0e: BEGIN
+[0m12:45:54.393421 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.394365 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.394982 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_email.2723c62e0e"
+[0m12:45:54.395570 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_email.2723c62e0e: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_users_email.2723c62e0e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select email
+from "ecommerce"."main"."stg_users"
+where email is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.397709 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m12:45:54.399471 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_email.2723c62e0e: ROLLBACK
+[0m12:45:54.400763 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_users_email.2723c62e0e'
+[0m12:45:54.401428 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_email.2723c62e0e: Close
+[0m12:45:54.402263 [info ] [Thread-1 (]: 23 of 30 PASS not_null_stg_users_email ......................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.403264 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_users_email.2723c62e0e
+[0m12:45:54.403969 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_users_joined_date.979f338722
+[0m12:45:54.404552 [info ] [Thread-1 (]: 24 of 30 START test not_null_stg_users_joined_date ............................. [RUN]
+[0m12:45:54.405218 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_users_email.2723c62e0e, now test.ecommerce_dq.not_null_stg_users_joined_date.979f338722)
+[0m12:45:54.405724 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_users_joined_date.979f338722
+[0m12:45:54.409210 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_users_joined_date.979f338722"
+[0m12:45:54.410456 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_users_joined_date.979f338722
+[0m12:45:54.412491 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_users_joined_date.979f338722"
+[0m12:45:54.413729 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_joined_date.979f338722"
+[0m12:45:54.414301 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_joined_date.979f338722: BEGIN
+[0m12:45:54.414797 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.415863 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.416471 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_joined_date.979f338722"
+[0m12:45:54.416955 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_joined_date.979f338722: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_users_joined_date.979f338722"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select joined_date
+from "ecommerce"."main"."stg_users"
+where joined_date is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.418827 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.448766 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_joined_date.979f338722: ROLLBACK
+[0m12:45:54.450137 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_users_joined_date.979f338722'
+[0m12:45:54.450876 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_joined_date.979f338722: Close
+[0m12:45:54.451752 [info ] [Thread-1 (]: 24 of 30 PASS not_null_stg_users_joined_date ................................... [[32mPASS[0m in 0.05s]
+[0m12:45:54.452655 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_users_joined_date.979f338722
+[0m12:45:54.453383 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77
+[0m12:45:54.454050 [info ] [Thread-1 (]: 25 of 30 START test not_null_stg_users_user_id ................................. [RUN]
+[0m12:45:54.455013 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_users_joined_date.979f338722, now test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77)
+[0m12:45:54.455593 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77
+[0m12:45:54.459311 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77"
+[0m12:45:54.460475 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77
+[0m12:45:54.462642 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77"
+[0m12:45:54.464225 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77"
+[0m12:45:54.465128 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77: BEGIN
+[0m12:45:54.465769 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.466840 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.467540 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77"
+[0m12:45:54.468081 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select user_id
+from "ecommerce"."main"."stg_users"
+where user_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.470130 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.471894 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77: ROLLBACK
+[0m12:45:54.473126 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77'
+[0m12:45:54.473761 [debug] [Thread-1 (]: On test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77: Close
+[0m12:45:54.474581 [info ] [Thread-1 (]: 25 of 30 PASS not_null_stg_users_user_id ....................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.475393 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77
+[0m12:45:54.475940 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8
+[0m12:45:54.476604 [info ] [Thread-1 (]: 26 of 30 START test unique_mart_user_activity_user_id .......................... [RUN]
+[0m12:45:54.477339 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.not_null_stg_users_user_id.980dfc1b77, now test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8)
+[0m12:45:54.477938 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8
+[0m12:45:54.483752 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8"
+[0m12:45:54.485061 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8
+[0m12:45:54.487125 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8"
+[0m12:45:54.488405 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8"
+[0m12:45:54.488984 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8: BEGIN
+[0m12:45:54.489583 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.490616 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.491265 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8"
+[0m12:45:54.491829 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    user_id as unique_field,
+    count(*) as n_records
+
+from "ecommerce"."main"."mart_user_activity"
+where user_id is not null
+group by user_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.497909 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m12:45:54.501564 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8: ROLLBACK
+[0m12:45:54.503063 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8'
+[0m12:45:54.503783 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8: Close
+[0m12:45:54.504658 [info ] [Thread-1 (]: 26 of 30 PASS unique_mart_user_activity_user_id ................................ [[32mPASS[0m in 0.03s]
+[0m12:45:54.505522 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8
+[0m12:45:54.506160 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a
+[0m12:45:54.507074 [info ] [Thread-1 (]: 27 of 30 START test unique_stg_orders_order_id ................................. [RUN]
+[0m12:45:54.507881 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.unique_mart_user_activity_user_id.33b14b38c8, now test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a)
+[0m12:45:54.508508 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a
+[0m12:45:54.512122 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a"
+[0m12:45:54.513376 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a
+[0m12:45:54.515722 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a"
+[0m12:45:54.516991 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a"
+[0m12:45:54.545740 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a: BEGIN
+[0m12:45:54.546407 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.547432 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.548069 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a"
+[0m12:45:54.548614 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from "ecommerce"."main"."stg_orders"
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.552796 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m12:45:54.554607 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a: ROLLBACK
+[0m12:45:54.555918 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a'
+[0m12:45:54.556666 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a: Close
+[0m12:45:54.557484 [info ] [Thread-1 (]: 27 of 30 PASS unique_stg_orders_order_id ....................................... [[32mPASS[0m in 0.05s]
+[0m12:45:54.558229 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a
+[0m12:45:54.559080 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.unique_stg_products_product_id.7d950a1467
+[0m12:45:54.559810 [info ] [Thread-1 (]: 28 of 30 START test unique_stg_products_product_id ............................. [RUN]
+[0m12:45:54.560513 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.unique_stg_orders_order_id.e3b841c71a, now test.ecommerce_dq.unique_stg_products_product_id.7d950a1467)
+[0m12:45:54.561007 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.unique_stg_products_product_id.7d950a1467
+[0m12:45:54.564516 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.unique_stg_products_product_id.7d950a1467"
+[0m12:45:54.565683 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.unique_stg_products_product_id.7d950a1467
+[0m12:45:54.567731 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.unique_stg_products_product_id.7d950a1467"
+[0m12:45:54.569164 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_products_product_id.7d950a1467"
+[0m12:45:54.569841 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_products_product_id.7d950a1467: BEGIN
+[0m12:45:54.570376 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.571386 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.571984 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_products_product_id.7d950a1467"
+[0m12:45:54.572599 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_products_product_id.7d950a1467: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.unique_stg_products_product_id.7d950a1467"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    product_id as unique_field,
+    count(*) as n_records
+
+from "ecommerce"."main"."stg_products"
+where product_id is not null
+group by product_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.577988 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m12:45:54.579714 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_products_product_id.7d950a1467: ROLLBACK
+[0m12:45:54.580987 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.unique_stg_products_product_id.7d950a1467'
+[0m12:45:54.581611 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_products_product_id.7d950a1467: Close
+[0m12:45:54.582432 [info ] [Thread-1 (]: 28 of 30 PASS unique_stg_products_product_id ................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.583330 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.unique_stg_products_product_id.7d950a1467
+[0m12:45:54.584005 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.unique_stg_users_email.7ba574d07b
+[0m12:45:54.584823 [info ] [Thread-1 (]: 29 of 30 START test unique_stg_users_email ..................................... [RUN]
+[0m12:45:54.585745 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.unique_stg_products_product_id.7d950a1467, now test.ecommerce_dq.unique_stg_users_email.7ba574d07b)
+[0m12:45:54.586408 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.unique_stg_users_email.7ba574d07b
+[0m12:45:54.590266 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.unique_stg_users_email.7ba574d07b"
+[0m12:45:54.591582 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.unique_stg_users_email.7ba574d07b
+[0m12:45:54.593697 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.unique_stg_users_email.7ba574d07b"
+[0m12:45:54.594886 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_users_email.7ba574d07b"
+[0m12:45:54.595473 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_email.7ba574d07b: BEGIN
+[0m12:45:54.595987 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.597058 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.597770 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_users_email.7ba574d07b"
+[0m12:45:54.598367 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_email.7ba574d07b: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.unique_stg_users_email.7ba574d07b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    email as unique_field,
+    count(*) as n_records
+
+from "ecommerce"."main"."stg_users"
+where email is not null
+group by email
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.602356 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m12:45:54.604093 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_email.7ba574d07b: ROLLBACK
+[0m12:45:54.605826 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.unique_stg_users_email.7ba574d07b'
+[0m12:45:54.607198 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_email.7ba574d07b: Close
+[0m12:45:54.608123 [info ] [Thread-1 (]: 29 of 30 PASS unique_stg_users_email ........................................... [[32mPASS[0m in 0.02s]
+[0m12:45:54.608943 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.unique_stg_users_email.7ba574d07b
+[0m12:45:54.609618 [debug] [Thread-1 (]: Began running node test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b
+[0m12:45:54.610368 [info ] [Thread-1 (]: 30 of 30 START test unique_stg_users_user_id ................................... [RUN]
+[0m12:45:54.611041 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ecommerce_dq.unique_stg_users_email.7ba574d07b, now test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b)
+[0m12:45:54.611697 [debug] [Thread-1 (]: Began compiling node test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b
+[0m12:45:54.646502 [debug] [Thread-1 (]: Writing injected SQL for node "test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b"
+[0m12:45:54.647888 [debug] [Thread-1 (]: Began executing node test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b
+[0m12:45:54.650399 [debug] [Thread-1 (]: Writing runtime sql for node "test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b"
+[0m12:45:54.651723 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b"
+[0m12:45:54.652374 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b: BEGIN
+[0m12:45:54.653014 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m12:45:54.654106 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m12:45:54.654752 [debug] [Thread-1 (]: Using duckdb connection "test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b"
+[0m12:45:54.655446 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "ecommerce", "target_name": "dev", "node_id": "test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    user_id as unique_field,
+    count(*) as n_records
+
+from "ecommerce"."main"."stg_users"
+where user_id is not null
+group by user_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m12:45:54.659106 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m12:45:54.660860 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b: ROLLBACK
+[0m12:45:54.662112 [debug] [Thread-1 (]: Failed to rollback 'test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b'
+[0m12:45:54.662730 [debug] [Thread-1 (]: On test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b: Close
+[0m12:45:54.663446 [info ] [Thread-1 (]: 30 of 30 PASS unique_stg_users_user_id ......................................... [[32mPASS[0m in 0.05s]
+[0m12:45:54.664277 [debug] [Thread-1 (]: Finished running node test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b
+[0m12:45:54.666434 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:54.667119 [debug] [MainThread]: On master: BEGIN
+[0m12:45:54.667657 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m12:45:54.668623 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m12:45:54.669117 [debug] [MainThread]: On master: COMMIT
+[0m12:45:54.669560 [debug] [MainThread]: Using duckdb connection "master"
+[0m12:45:54.670046 [debug] [MainThread]: On master: COMMIT
+[0m12:45:54.670899 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m12:45:54.671523 [debug] [MainThread]: On master: Close
+[0m12:45:54.672113 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m12:45:54.672604 [debug] [MainThread]: Connection 'test.ecommerce_dq.unique_stg_users_user_id.c2ff477e6b' was properly closed.
+[0m12:45:54.673115 [info ] [MainThread]: 
+[0m12:45:54.673730 [info ] [MainThread]: Finished running 30 data tests in 0 hours 0 minutes and 1.47 seconds (1.47s).
+[0m12:45:54.677889 [debug] [MainThread]: Command end result
+[0m12:45:54.710336 [debug] [MainThread]: Wrote artifact WritableManifest to /home/claude/dq_monitor/dbt_project/target/manifest.json
+[0m12:45:54.713771 [debug] [MainThread]: Wrote artifact SemanticManifest to /home/claude/dq_monitor/dbt_project/target/semantic_manifest.json
+[0m12:45:54.749486 [debug] [MainThread]: Wrote artifact RunExecutionResult to /home/claude/dq_monitor/dbt_project/target/run_results.json
+[0m12:45:54.750050 [info ] [MainThread]: 
+[0m12:45:54.750855 [info ] [MainThread]: [31mCompleted with 3 errors, 0 partial successes, and 0 warnings:[0m
+[0m12:45:54.751518 [info ] [MainThread]: 
+[0m12:45:54.752552 [error] [MainThread]: [31mFailure in test accepted_values_stg_orders_order_status__paid__pending__cancelled__refunded (models/staging/schema.yml)[0m
+[0m12:45:54.753088 [error] [MainThread]:   Got 1 result, configured to fail if != 0
+[0m12:45:54.753570 [info ] [MainThread]: 
+[0m12:45:54.754147 [info ] [MainThread]:   compiled code at target/compiled/ecommerce_dq/models/staging/schema.yml/accepted_values_stg_orders_23e8f90f4b3248313d7ed08e228a182b.sql
+[0m12:45:54.754681 [info ] [MainThread]: 
+[0m12:45:54.755184 [error] [MainThread]: [31mFailure in test accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE (models/staging/schema.yml)[0m
+[0m12:45:54.755760 [error] [MainThread]:   Got 1 result, configured to fail if != 0
+[0m12:45:54.756356 [info ] [MainThread]: 
+[0m12:45:54.756959 [info ] [MainThread]:   compiled code at target/compiled/ecommerce_dq/models/staging/schema.yml/accepted_values_stg_users_country_code__LK__US__UK__IN__AU__DE.sql
+[0m12:45:54.757563 [info ] [MainThread]: 
+[0m12:45:54.758230 [error] [MainThread]: [31mFailure in test not_null_stg_orders_order_total (models/staging/schema.yml)[0m
+[0m12:45:54.758848 [error] [MainThread]:   Got 35 results, configured to fail if != 0
+[0m12:45:54.759343 [info ] [MainThread]: 
+[0m12:45:54.759881 [info ] [MainThread]:   compiled code at target/compiled/ecommerce_dq/models/staging/schema.yml/not_null_stg_orders_order_total.sql
+[0m12:45:54.760362 [info ] [MainThread]: 
+[0m12:45:54.760842 [info ] [MainThread]: Done. PASS=27 WARN=0 ERROR=3 SKIP=0 NO-OP=0 TOTAL=30
+[0m12:45:54.762940 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 4.7529435, "process_in_blocks": "0", "process_kernel_time": 1.59, "process_mem_max_rss": "232736", "process_out_blocks": "0", "process_user_time": 6.25}
+[0m12:45:54.763778 [debug] [MainThread]: Command `dbt test` failed at 12:45:54.763657 after 4.75 seconds
+[0m12:45:54.764415 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc92f79ca0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc92f7b3e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ecc934ed700>]}
+[0m12:45:54.765031 [debug] [MainThread]: Flushing usage events
+[0m12:45:54.833099 [debug] [MainThread]: An error was encountered while trying to flush usage events

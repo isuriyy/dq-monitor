@@ -1,0 +1,10 @@
+sources:
+  - name: ecommerce_db
+    dialect: sqlite
+    path: ./data/ecommerce.db
+    description: "E-commerce platform - orders, products, users"
+
+  - name: chinook_db
+    dialect: sqlite
+    path: ./data/chinook.db
+    description: "Music store - artists, albums, tracks, invoices"

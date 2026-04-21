@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DQ Monitor — Data Quality Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Top navigation bar -->
+<nav class="topbar">
+  <div class="topbar-left">
+    <div class="logo">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <rect x="1" y="1" width="7" height="7" rx="1.5" fill="white"/>
+        <rect x="10" y="1" width="7" height="7" rx="1.5" fill="white" opacity=".7"/>
+        <rect x="1" y="10" width="7" height="7" rx="1.5" fill="white" opacity=".7"/>
+        <rect x="10" y="10" width="3" height="3" rx="1" fill="white" opacity=".5"/>
+        <rect x="14" y="10" width="3" height="3" rx="1" fill="white" opacity=".5"/>
+        <rect x="10" y="14" width="3" height="3" rx="1" fill="white" opacity=".5"/>
+        <rect x="14" y="14" width="3" height="3" rx="1" fill="white" opacity=".5"/>
+      </svg>
+    </div>
+    <span class="brand">DQ<span>Monitor</span></span>
+    <div class="divider-v"></div>
+    <nav class="top-nav">
+      <a class="nav-link active" onclick="showPage('overview',this)">Overview</a>
+      <a class="nav-link" onclick="showPage('trends',this)">Row Trends</a>
+      <a class="nav-link" onclick="showPage('heatmap',this)">Null Heatmap</a>
+      <a class="nav-link" onclick="showPage('anomalies',this)">Anomalies</a>
+      <a class="nav-link" onclick="showPage('alerts',this)">Alert Log</a>
+      <a class="nav-link" onclick="showPage('ai',this)">&#129504; AI Assistant</a>
+      <a class="nav-link" onclick="showPage('history',this)">History</a>
+      <a class="nav-link" onclick="showPage('connections',this)">Connections</a>
+    </nav>
+  </div>
+  <div class="topbar-right">
+    <span class="last-run" id="lastRun">Loading...</span>
+    <div class="status-pill" id="statusPill">—</div>
+    <button class="ai-btn" onclick="toggleAIPanel()" title="Ask AI about your data">🤖 Ask AI</button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode" id="themeBtn">🌙</button>
+    <button class="refresh-btn" onclick="loadAllData()">&#8635; Refresh</button>
+    <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link active" onclick="showPage('overview',this);toggleMobileMenu()">Overview</a>
+  <a class="nav-link" onclick="showPage('trends',this);toggleMobileMenu()">Row Trends</a>
+  <a class="nav-link" onclick="showPage('heatmap',this);toggleMobileMenu()">Null Heatmap</a>
+  <a class="nav-link" onclick="showPage('anomalies',this);toggleMobileMenu()">Anomalies</a>
+  <a class="nav-link" onclick="showPage('alerts',this);toggleMobileMenu()">Alert Log</a>
+  <a class="nav-link" onclick="showPage('ai',this);toggleMobileMenu()">&#129504; AI Assistant</a>
+  <a class="nav-link" onclick="showPage('history',this);toggleMobileMenu()">History</a>
+  <a class="nav-link" onclick="showPage('connections',this);toggleMobileMenu()">Connections</a>
+</div>
+
+<!-- Status banner -->
+<div class="status-banner" id="statusBanner" style="display:none"></div>
+
+<!-- Pages -->
+<main class="main" id="main">
+
+  <!-- OVERVIEW PAGE -->
+  <div id="page-overview" class="page active">
+    <div class="page-header">
+      <h1>Data Quality Overview</h1>
+      <span class="page-date" id="pageDate"></span>
+    </div>
+
+    <!-- HERO BANNER — dominant element -->
+    <div class="hero-banner" id="heroBanner">
+      <div class="hero-left">
+        <div class="hero-score" id="heroScore">—</div>
+        <div class="hero-info">
+          <div class="hero-label">Average DQ Score</div>
+          <div class="hero-status" id="heroStatus">Loading...</div>
+          <div class="hero-detail" id="heroDetail">Checking all tables...</div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat">
+          <div class="hero-stat-num red" id="hAnomaly">—</div>
+          <div class="hero-stat-lbl">Anomalies</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num amber" id="hGxFail">—</div>
+          <div class="hero-stat-lbl">Checks failed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num green" id="hSnaps">—</div>
+          <div class="hero-stat-lbl">Snapshots</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score cards -->
+    <div class="section-label">Table health scores</div>
+    <div class="scores-grid" id="scoresGrid"></div>
+
+    <!-- Two charts side by side -->
+    <div class="two-col">
+      <div class="chart-card">
+        <div class="chart-title">Row count — 30 day trend</div>
+        <div class="chart-sub" id="rowTrendSub">All tables</div>
+        <canvas id="rowTrendChart" height="100"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Anomalies by severity</div>
+        <div class="chart-sub">Current run breakdown</div>
+        <canvas id="severityChart" height="100"></canvas>
+      </div>
+    </div>
+
+    <!-- Anomaly table preview -->
+    <div class="table-card">
+      <div class="table-header">
+        <span class="table-title">Latest anomalies</span>
+        <a class="view-all" onclick="showPage('anomalies',null)">View all →</a>
+      </div>
+      <div id="anomalyTablePreview"></div>
+    </div>
+  </div>
+
+  <!-- ROW TRENDS PAGE -->
+  <div id="page-trends" class="page">
+    <div class="page-header"><h1>Row Count Trends</h1></div>
+    <div class="chart-card" style="margin-bottom:16px">
+      <div class="chart-title">All tables — row count over time</div>
+      <div class="chart-sub">A sudden drop = pipeline failure. A sudden spike = duplicate data.</div>
+      <canvas id="allTablesChart" height="120"></canvas>
+    </div>
+    <div id="perTableCharts"></div>
+  </div>
+
+  <!-- NULL HEATMAP PAGE -->
+  <div id="page-heatmap" class="page">
+    <div class="page-header"><h1>Null % Heatmap</h1></div>
+    <p class="page-desc">Dark red = high nulls. Green = clean. Shows which columns are degrading over time.</p>
+    <div class="chart-card">
+      <div class="chart-title">Null % per column over time</div>
+      <div id="heatmapContainer"></div>
+    </div>
+    <div class="chart-card" style="margin-top:14px">
+      <div class="chart-title">Worst columns by average null %</div>
+      <canvas id="worstNullsChart" height="120"></canvas>
+    </div>
+  </div>
+
+  <!-- ANOMALIES PAGE -->
+  <div id="page-anomalies" class="page">
+    <div class="page-header"><h1>Anomaly Timeline</h1></div>
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Severity</label>
+        <div class="filter-pills" id="sevFilter">
+          <span class="fpill active" data-val="CRITICAL" onclick="toggleFilter(this,'sev')">Critical</span>
+          <span class="fpill active" data-val="HIGH" onclick="toggleFilter(this,'sev')">High</span>
+          <span class="fpill active" data-val="MEDIUM" onclick="toggleFilter(this,'sev')">Medium</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Table</label>
+        <div class="filter-pills" id="tableFilter"></div>
+      </div>
+    </div>
+    <div class="stats-row" id="anomalyStats"></div>
+    <div class="table-card" style="margin-top:14px">
+      <div id="fullAnomalyTable"></div>
+    </div>
+  </div>
+
+  <!-- ALERTS PAGE -->
+  <div id="page-alerts" class="page">
+    <div class="page-header"><h1>Alert Log</h1></div>
+    <div class="ribbon" id="alertRibbon"></div>
+    <div class="chart-card" style="margin-bottom:14px">
+      <div class="chart-title">Alerts by channel</div>
+      <canvas id="alertChannelChart" height="80"></canvas>
+    </div>
+    <div class="table-card">
+      <div class="table-header"><span class="table-title">Full alert history</span></div>
+      <div id="alertTable"></div>
+    </div>
+  </div>
+
+  <!-- AI ASSISTANT PAGE -->
+  <div id="page-ai" class="page">
+    <div class="page-header">
+      <h1>&#129504; AI Assistant</h1>
+      <span class="page-date" id="aiModelLabel"></span>
+    </div>
+    <p class="page-desc">Ask questions about your data quality. The AI has full context of your current scores, anomalies, and alerts.</p>
+
+    <!-- Chat window -->
+    <div class="ai-chat-wrap">
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-msg assistant">
+          <div class="ai-bubble">
+            Hello! I have access to your current dashboard data — <span id="aiGreetingDetail">loading...</span>
+            <br><br>
+            Try asking me:<br>
+            &bull; "What's wrong with my data today?"<br>
+            &bull; "Which table should I investigate first?"<br>
+            &bull; "Summarise the last pipeline run"<br>
+            &bull; "Why is orders flagged as warning?"
+          </div>
+        </div>
+      </div>
+      <div class="ai-input-row">
+        <input type="text" id="aiInput" class="ai-input" placeholder="Ask about your data quality..." onkeydown="if(event.key==='Enter')sendAiMessage()"/>
+        <button class="ai-send-btn" onclick="sendAiMessage()">&#10148;</button>
+      </div>
+      <div class="ai-status" id="aiStatus"></div>
+    </div>
+
+    <!-- Suggested questions -->
+    <div class="section-label" style="margin-top:20px">Quick questions</div>
+    <div class="ai-suggestions">
+      <button class="ai-suggestion" onclick="askSuggestion(this)">What is the overall data quality status?</button>
+      <button class="ai-suggestion" onclick="askSuggestion(this)">Which table has the worst data quality?</button>
+      <button class="ai-suggestion" onclick="askSuggestion(this)">Explain the critical anomalies</button>
+      <button class="ai-suggestion" onclick="askSuggestion(this)">What should I investigate first?</button>
+      <button class="ai-suggestion" onclick="askSuggestion(this)">Summarise the recent alerts</button>
+      <button class="ai-suggestion" onclick="askSuggestion(this)">Are the chinook_db tables healthy?</button>
+    </div>
+  </div>
+
+  <!-- HISTORY PAGE -->
+  <div id="page-history" class="page">
+    <div class="page-header">
+      <h1>Pipeline History</h1>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a href="#" onclick="downloadReport()" class="dl-btn">&#8681; Download PDF Report</a>
+      </div>
+    </div>
+    <p class="page-desc">Every pipeline run, table profiled, and alert sent. Full audit trail from metadata.db.</p>
+
+    <!-- Summary stats -->
+    <div class="ribbon" id="historyRibbon"></div>
+
+    <!-- Download options -->
+    <div class="dl-bar" id="dlBar">
+      <span style="font-size:12px;color:var(--text-secondary);font-weight:500">Download report:</span>
+      <a href="#" onclick="downloadReport('pdf')" class="dl-btn">&#8681; PDF Report</a>
+      <a href="#" onclick="downloadReport('csv')" class="dl-btn">&#8681; CSV Export</a>
+      <a href="#" onclick="downloadReport('excel')" class="dl-btn">&#8681; Excel Workbook</a>
+      <span style="font-size:11px;color:var(--text-muted)">Requires <code>python api_server.py</code> running</span>
+    </div>
+
+    <!-- Pipeline runs timeline -->
+    <div class="section-label" style="margin-top:16px">Pipeline runs</div>
+    <div class="table-card" style="margin-bottom:14px">
+      <div id="historyRuns"></div>
+    </div>
+
+    <!-- Alert history -->
+    <div class="section-label">Alert history</div>
+    <div class="table-card">
+      <div id="historyAlerts"></div>
+    </div>
+  </div>
+
+  <!-- CONNECTIONS PAGE -->
+  <div id="page-connections" class="page">
+    <div class="page-header"><h1>Connection Manager</h1></div>
+
+    <div class="section-label">Select database type</div>
+    <div class="db-type-grid">
+      <div class="db-type-card active" id="dtype-sqlite" onclick="selectDialect('sqlite')">
+        <div class="db-type-icon">&#128193;</div>
+        <div class="db-type-name">SQLite</div>
+        <div class="db-type-desc">Local .db file</div>
+      </div>
+      <div class="db-type-card" id="dtype-postgresql" onclick="selectDialect('postgresql')">
+        <div class="db-type-icon">&#128024;</div>
+        <div class="db-type-name">PostgreSQL</div>
+        <div class="db-type-desc">Most popular</div>
+      </div>
+      <div class="db-type-card" id="dtype-mysql" onclick="selectDialect('mysql')">
+        <div class="db-type-icon">&#128031;</div>
+        <div class="db-type-name">MySQL</div>
+        <div class="db-type-desc">Web apps</div>
+      </div>
+      <div class="db-type-card" id="dtype-cloud" onclick="selectDialect('cloud')">
+        <div class="db-type-icon">&#9729;</div>
+        <div class="db-type-name">Cloud DB</div>
+        <div class="db-type-desc">BigQuery / RDS</div>
+      </div>
+    </div>
+
+    <div class="conn-form-wrap">
+      <div id="form-sqlite" class="conn-form active">
+        <div class="form-grid-2">
+          <div class="form-field"><label>Connection name</label><input id="sl-name" placeholder="e.g. my_local_db" value="ecommerce_db"/></div>
+          <div class="form-field"><label>File path (.db)</label><input id="sl-path" placeholder="./data/myfile.db" value="./data/ecommerce.db"/></div>
+        </div>
+        <div class="form-hint">No server needed. Just point to your .db file on disk.</div>
+      </div>
+
+      <div id="form-postgresql" class="conn-form">
+        <div class="form-grid-2">
+          <div class="form-field"><label>Connection name</label><input id="pg-name" placeholder="e.g. production_db"/></div>
+          <div class="form-field"><label>Database name</label><input id="pg-db" placeholder="e.g. myapp_prod"/></div>
+        </div>
+        <div class="form-grid-3">
+          <div class="form-field"><label>Host</label><input id="pg-host" placeholder="localhost or db.company.com"/></div>
+          <div class="form-field"><label>Port</label><input id="pg-port" value="5432"/></div>
+          <div class="form-field"><label>Username</label><input id="pg-user" placeholder="postgres"/></div>
+        </div>
+        <div class="form-field"><label>Password</label><input id="pg-pass" type="password" placeholder="your password"/></div>
+        <div class="form-hint">Install driver first: <code>pip install psycopg2-binary</code></div>
+      </div>
+
+      <div id="form-mysql" class="conn-form">
+        <div class="form-grid-2">
+          <div class="form-field"><label>Connection name</label><input id="my-name" placeholder="e.g. shop_db"/></div>
+          <div class="form-field"><label>Database name</label><input id="my-db" placeholder="e.g. shopdb"/></div>
+        </div>
+        <div class="form-grid-3">
+          <div class="form-field"><label>Host</label><input id="my-host" placeholder="localhost"/></div>
+          <div class="form-field"><label>Port</label><input id="my-port" value="3306"/></div>
+          <div class="form-field"><label>Username</label><input id="my-user" placeholder="root"/></div>
+        </div>
+        <div class="form-field"><label>Password</label><input id="my-pass" type="password" placeholder="your password"/></div>
+        <div class="form-hint">Install driver first: <code>pip install pymysql</code></div>
+      </div>
+
+      <div id="form-cloud" class="conn-form">
+        <div class="form-grid-2">
+          <div class="form-field"><label>Connection name</label><input id="cl-name" placeholder="e.g. bigquery_prod"/></div>
+          <div class="form-field"><label>Cloud type</label>
+            <select id="cl-type" style="padding:8px;border-radius:6px;border:1px solid #D1D5DB;font-size:13px;width:100%">
+              <option>Google BigQuery</option>
+              <option>AWS RDS PostgreSQL</option>
+              <option>AWS RDS MySQL</option>
+              <option>Azure SQL</option>
+              <option>Snowflake</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field"><label>Connection string</label><input id="cl-dsn" placeholder="postgresql://user:pass@host:5432/db"/></div>
+        <div class="form-field"><label>Credentials file (optional, for BigQuery)</label><input id="cl-creds" placeholder="./credentials/bigquery_key.json"/></div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-test" onclick="testConnection()">&#128299; Test connection</button>
+        <button class="btn-save" onclick="saveConnection()">&#128190; Save connection</button>
+      </div>
+      <div id="connFeedback" class="conn-feedback" style="display:none"></div>
+      <div id="tablesFound" style="display:none;margin-top:8px;font-size:12px;color:#374151"></div>
+    </div>
+
+    <div class="section-label" style="margin-top:24px">Saved connections</div>
+    <div id="connectionCards"></div>
+
+    <div class="section-label" style="margin-top:20px">How to add a new database</div>
+    <div class="info-steps">
+      <div class="info-step"><div class="step-num">1</div><div>Select DB type above and fill in the connection details</div></div>
+      <div class="info-step"><div class="step-num">2</div><div>Click <strong>Test connection</strong> to verify it works</div></div>
+      <div class="info-step"><div class="step-num">3</div><div>Click <strong>Save connection</strong> &#8212; writes to <code>config/sources.yaml</code></div></div>
+      <div class="info-step"><div class="step-num">4</div><div>Click <strong>Run profiler</strong> on the saved connection to start monitoring</div></div>
+    </div>
+  </div>
+
+</main>
+
+<script src="js/app.js" defer></script>
+
+<!-- AI Assistant Panel -->
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-panel-header">
+    <div class="ai-panel-title">
+      <span style="font-size:18px">🤖</span>
+      <div>
+        <div style="font-weight:600;font-size:14px;color:var(--text-primary)">AI Data Assistant</div>
+        <div style="font-size:11px;color:var(--text-muted)" id="aiModelLabel">Powered by Gemini</div>
+      </div>
+    </div>
+    <button class="ai-close" onclick="toggleAIPanel()">✕</button>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg ai-msg-bot">
+      <div class="ai-bubble">
+        👋 Hi! I can answer questions about your data quality. Try asking:<br><br>
+        • <a onclick="askSuggestion(this)">What's wrong with my data today?</a><br>
+        • <a onclick="askSuggestion(this)">Which table has the worst score?</a><br>
+        • <a onclick="askSuggestion(this)">Why is orders flagged as critical?</a><br>
+        • <a onclick="askSuggestion(this)">When was the last pipeline run?</a>
+      </div>
+    </div>
+  </div>
+  <div class="ai-input-row">
+    <input type="text" id="aiInput" class="ai-input"
+           placeholder="Ask about your data..."
+           onkeydown="if(event.key==='Enter') sendAIQuestion()"/>
+    <button class="ai-send" onclick="sendAIQuestion()" id="aiSendBtn">Send</button>
+  </div>
+</div>
+<div class="ai-overlay" id="aiOverlay" onclick="toggleAIPanel()"></div>
+
+</body>
+</html>

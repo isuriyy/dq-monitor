@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: mart_orders_summary
+    description: "Daily order aggregations by status — used by dashboards"
+    columns:
+      - name: order_date
+        description: "The date of orders"
+        data_tests:
+          - not_null
+      - name: order_status
+        description: "Order status bucket"
+        data_tests:
+          - not_null
+      - name: total_orders
+        description: "Count of orders for this date+status"
+        data_tests:
+          - not_null
+      - name: total_revenue
+        description: "Sum of order totals for this date+status"
+
+  - name: mart_user_activity
+    description: "Per-user order behaviour summary"
+    columns:
+      - name: user_id
+        description: "Unique user identifier"
+        data_tests:
+          - unique
+          - not_null
+      - name: email
+        description: "User email"
+        data_tests:
+          - not_null

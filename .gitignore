@@ -1,0 +1,31 @@
+# Sensitive credentials
+.env
+
+# Databases
+*.db
+*.sqlite
+
+# Generated reports
+reports/
+
+# Dashboard JSON data
+web_dashboard/data/*.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated report files
+scheduler_history.json
+anomaly_report.json
+gx_report.json
+cross_db_report.json
+dbt_report.json 
+scheduler.log 
+*.duckdb 
