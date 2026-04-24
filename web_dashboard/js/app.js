@@ -127,7 +127,6 @@ function renderAll(){
   renderTopbar();
   renderSourceSelector();
   renderHistory();
-  initAiGreeting();
   renderOverview();
   renderTrends();
   renderHeatmap();
@@ -690,6 +689,105 @@ async function downloadReport(fmt){
 
 
 // ── Boot ──────────────────────────────────────────────────────
+
+// ── AI Assistant functions ─────────────────────────────────────
+const AI_API  = 'http://127.0.0.1:5050/api/chat';
+let aiHistory = [];
+let aiThinking = false;
+
+function initAiGreeting(){
+  const s  = DATA.summary || {};
+  const el = document.getElementById('aiGreetingDetail');
+  if(el) el.textContent =
+    (s.overall_status||'UNKNOWN') + ' status — ' + (s.total_anomalies||0) +
+    ' anomaly(s) across ' + (s.source_count||0) + ' source(s).';
+  const lbl = document.getElementById('aiModelLabel');
+  if(lbl) lbl.textContent = 'Powered by Gemini (free tier)';
+}
+
+function appendAiMessage(role, text, tag, footer){
+  const wrap = document.getElementById('aiMessages');
+  if(!wrap) return null;
+  const div = document.createElement('div');
+  div.className = 'ai-msg ' + role;
+
+  if(role === 'user'){
+    // User bubble — blue pill, right aligned
+    div.innerHTML = `<div class="ai-bubble user-bubble">${escapeHtml(text)}</div>`;
+  } else if(role.includes('thinking')){
+    // Thinking indicator
+    div.innerHTML = `<div class="ai-bubble assistant-bubble thinking-bubble"><span class="thinking-dots"><span>.</span><span>.</span><span>.</span></span> thinking...</div>`;
+  } else {
+    // Assistant bubble — dark card with tag + footer
+    const tagHtml  = tag    ? `<span class="ai-msg-tag">${tag}</span>` : `<span class="ai-msg-tag">GENERAL Q&amp;A</span>`;
+    const footHtml = footer ? `<div class="ai-msg-footer">${footer}</div>` : `<div class="ai-msg-footer">via rule-based</div>`;
+    const bodyHtml = text.split('\n').join('<br>');
+    div.innerHTML = `
+      <div class="ai-bubble assistant-bubble">
+        ${tagHtml}
+        <div class="ai-bubble-body">${bodyHtml}</div>
+        ${footHtml}
+      </div>`;
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+function escapeHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+async function sendAiMessage(){
+  if(aiThinking) return;
+  const input  = document.getElementById('aiInput');
+  const msg    = input && input.value && input.value.trim();
+  if(!msg) return;
+  input.value = '';
+  appendAiMessage('user', msg);
+  aiHistory.push({role:'user', content: msg});
+  const thinkDiv = appendAiMessage('assistant thinking', '');
+  aiThinking = true;
+  try {
+    const r = await fetch(AI_API, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({message: msg, history: aiHistory.slice(-6)})
+    });
+    const data  = await r.json();
+    const reply = data.response || data.message || 'No response received.';
+    const via   = data.via || 'rule-based';
+    const tag   = data.tag || 'GENERAL Q&A';
+    if(thinkDiv) thinkDiv.remove();
+    appendAiMessage('assistant', reply, tag, 'via ' + via);
+    aiHistory.push({role:'assistant', content: reply});
+  } catch(e){
+    if(thinkDiv) thinkDiv.remove();
+    appendAiMessage('assistant',
+      'Could not reach the API server. Make sure python api_server.py is running.',
+      'ERROR', 'api unreachable');
+  }
+  aiThinking = false;
+}
+
+function askSuggestion(btn){
+  const input = document.getElementById('aiInput');
+  if(input){ input.value = btn.textContent; sendAiMessage(); }
+}
+
+function toggleRootCause(btn){
+  const body = btn.nextElementSibling;
+  const open = body.classList.toggle('open');
+  btn.textContent = open
+    ? 'Root cause analysis — click to collapse'
+    : 'Root cause analysis — click to expand';
+}
+
+
+// ── Compatibility stubs (old panel removed) ────────────────────
+function toggleAIPanel(){ showPage('ai', document.querySelector('.nav-link[onclick*="ai"]')); }
+function sendAIQuestion(){ sendAiMessage(); }
+
 initTheme();
 loadAllData();
 
@@ -882,22 +980,6 @@ function renderHero(){
 })();
 
 // ── AI Assistant ───────────────────────────────────────────────
-const AI_API = 'http://127.0.0.1:5050/api/ask';
-
-function toggleAIPanel(){
-  const panel   = document.getElementById('aiPanel');
-  const overlay = document.getElementById('aiOverlay');
-  const isOpen  = panel.classList.contains('open');
-  panel.classList.toggle('open', !isOpen);
-  overlay.classList.toggle('open', !isOpen);
-  if(!isOpen) document.getElementById('aiInput')?.focus();
-}
-
-function askSuggestion(el){
-  const q = el.textContent;
-  document.getElementById('aiInput').value = q;
-  sendAIQuestion();
-}
 
 function _mdToHtml(text){
   return text
