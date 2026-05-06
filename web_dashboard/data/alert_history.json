@@ -1,0 +1,8 @@
+[
+  {
+    "sent_at": "2026-04-24T16:08:29.453121",
+    "channel": "slack",
+    "severity": "CRITICAL",
+    "summary": "Anomaly alert: 2 anomalies \u2014 status CRITICAL"
+  }
+]

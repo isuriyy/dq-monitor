@@ -9,7 +9,7 @@
 reports/
 
 # Dashboard JSON data
-web_dashboard/data/*.json
+# web_dashboard/data/*.json
 
 # Python cache
 __pycache__/
@@ -29,3 +29,4 @@ cross_db_report.json
 dbt_report.json 
 scheduler.log 
 *.duckdb 
+ 
