@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "detected_at": "2026-05-06T11:38:10",
+    "table": "ecommerce_db.orders",
+    "severity": "CRITICAL",
+    "metric": "std.total",
+    "detector": "iqr",
+    "today": "868.8618",
+    "expected": "344.475",
+    "score": "12.56",
+    "explanation": "The spread of values in ecommerce_db.orders.total is unusually high today (std=868.86, expected ~344) \u2014 outlier values may have been loaded or the data distribution has changed unexpectedly."
+  },
+  {
+    "detected_at": "2026-05-06T11:38:10",
+    "table": "ecommerce_db.products",
+    "severity": "CRITICAL",
+    "metric": "std.price",
+    "detector": "iqr",
+    "today": "395.9685",
+    "expected": "143.045",
+    "score": "4.64",
+    "explanation": "The spread of values in ecommerce_db.products.price is unusually high today (std=395.97, expected ~143) \u2014 outlier values may have been loaded or the data distribution has changed unexpectedly."
+  },
+  {
+    "detected_at": "2026-05-06T11:38:10",
+    "table": "ecommerce_db.products",
+    "severity": "MEDIUM",
+    "metric": "null_pct.stock",
+    "detector": "iqr",
+    "today": "6.0",
+    "expected": "7.0",
+    "score": "0.6",
+    "explanation": "The null rate for ecommerce_db.products.stock dropped to 6.0% (expected ~7%) \u2014 data that was previously missing is now being populated."
+  }
+]
