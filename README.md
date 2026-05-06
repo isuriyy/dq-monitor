@@ -4,7 +4,7 @@
 
 A production-grade data quality monitoring platform that automatically profiles multiple databases in parallel, detects statistical anomalies using three algorithms, generates AI-powered plain-English explanations and root cause analysis, sends real-time Slack and email alerts, and presents everything in a professional web dashboard — without any manual intervention after setup.
 
-> **Target audience:** Data engineers and developers who need automated data quality monitoring across multiple databases. Modelled on enterprise platforms like Monte Carlo, Great Expectations, and Soda — built for technical teams, not end users.
+> **Target audience:** Data engineers and developers who need automated data quality monitoring across multiple databases. Built for technical teams — inspired by the data observability category that enterprise platforms address commercially.
 
 ---
 
@@ -18,7 +18,7 @@ Standard database monitoring tells you when a server goes offline. It cannot det
 - Schema drift — a column type changed in production, breaking downstream dashboards silently
 - Cross-database inconsistency — customer counts diverged 80% between CRM and orders database
 
-DQ Monitor catches all of these. It addresses the same problem that Monte Carlo ($1.6B), Great Expectations, and Soda are built to solve — data observability is the missing layer above infrastructure monitoring that every data team needs.
+DQ Monitor catches all of these. It operates in the data observability space — the missing layer above infrastructure monitoring that every data team needs, and one of the fastest-growing problem areas in modern data engineering.
 
 ---
 
@@ -158,15 +158,16 @@ pip install pandas scikit-learn sqlalchemy apscheduler flask flask-cors \
 
 ### 2. Configure your database in `config/sources.yaml`
 
+**SQLite:**
 ```yaml
 sources:
   - name: my_database
-    dialect: sqlite        # or postgresql, mysql
+    dialect: sqlite
     path: ./data/mydb.db
     description: "My database"
 ```
 
-**For PostgreSQL:**
+**PostgreSQL:**
 ```yaml
 sources:
   - name: my_database
@@ -179,7 +180,7 @@ sources:
     description: "My database"
 ```
 
-**For MySQL:**
+**MySQL:**
 ```yaml
 sources:
   - name: my_database
@@ -321,6 +322,6 @@ These features are planned for future development:
 
 Built by Isuri Wijegunawardhana as a project demonstrating production-grade data engineering skills including statistical anomaly detection, LLM API integration, multi-database parallel architecture, real-time alerting, full-stack web development, and a 76-test automated test suite.
 
-Modelled on commercial data observability platforms (Monte Carlo, Great Expectations, Soda). Solves the same core problem: database uptime monitoring is not enough — data quality monitoring is the missing layer that every data team needs.
+Inspired by the data observability category — the same problem space that enterprise platforms address commercially. Solves the core problem that database uptime monitoring alone cannot: data quality monitoring is the missing layer that every data team needs.
 
 **Built entirely from scratch. No templates, no boilerplate, no tutorial followed.**
