@@ -1,0 +1,56 @@
+[
+  {
+    "table": "orders",
+    "score": 41,
+    "status": "CRITICAL",
+    "issues": [
+      "std.total spike detected (IQR)",
+      "Value 868.86 exceeds expected range"
+    ]
+  },
+  {
+    "table": "products",
+    "score": 68,
+    "status": "HIGH",
+    "issues": [
+      "std.price anomaly detected (IQR)",
+      "null_pct.stock dropped unexpectedly"
+    ]
+  },
+  {
+    "table": "users",
+    "score": 97,
+    "status": "HEALTHY",
+    "issues": []
+  },
+  {
+    "table": "Album",
+    "score": 99,
+    "status": "HEALTHY",
+    "issues": []
+  },
+  {
+    "table": "Artist",
+    "score": 99,
+    "status": "HEALTHY",
+    "issues": []
+  },
+  {
+    "table": "Customer",
+    "score": 95,
+    "status": "HEALTHY",
+    "issues": []
+  },
+  {
+    "table": "Invoice",
+    "score": 96,
+    "status": "HEALTHY",
+    "issues": []
+  },
+  {
+    "table": "Track",
+    "score": 93,
+    "status": "HEALTHY",
+    "issues": []
+  }
+]
